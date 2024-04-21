@@ -1,11 +1,145 @@
-<section>
-    <div id="main">
-        <div>
-            <app-navbar></app-navbar>
+<div style="color: #132968;">
+    <section style="position: relative; height: 53vh; background-color: #f1f2f6;">
+        <div id="main">
+            <div>
+                <app-navbar></app-navbar>
+            </div>
+            <div class="text-white fw-bold " style="padding: 7.5rem 0 0 12rem;">
+                <h2 style="font-weight: 700; font-size: 2.5rem;">Travel that moves you</h2>
+                <h4>Book train tickets </h4>
+            </div>
         </div>
-        <div class="text-white fw-bold " style="padding: 3rem 0 0 12rem;">
-            <h2 style="font-weight: 700; font-size: 42px;">Travel that moves you</h2>
-            <h4>Book train tickets</h4>
+        <div >
+            <app-ticket-input></app-ticket-input>
         </div>
-    </div>
+    </section>
+    
+    <section class="" style="padding-top: 5%; background-color: #f1f2f6;">
+        <div class="container-lg">
+            <div class="d-flex ">
+                <div class="d-flex row text-center justify-content-center">
+                    <span class="fw-bold">Scan to get the RMS app</span>
+                    <div class="position-relative">
+                        <img src="../../../assets/image_qr-code.jpg" alt="" style="position: absolute;width: 13%;top: 32%;left: 43.5%;">
+                       <img src="../../../assets/image_mobile.jpg" alt="" style="width:75%">
+                    </div>
+                </div>
+                <div>
+                    <h2 style="font-size: 260%; font-weight: 700;">Our free app</h2>
+                    <p>One app for every step of your journey—travel planning has never been <br> easier!</p>
+                    <div style="width: 600px; gap: 20%; " class="d-flex flex-wrap align-items-center pt-4" >
+                        <div class="d-flex justify-content-center align-items-center gap-4">
+                            <img src="../../../assets/mobile-tickets.jpg" style="width: 35px;" alt="">
+                            <p>Mobile tickets</p>                        
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center gap-4">
+                            <img src="../../../assets/safety.jpg" style="width: 35px;" alt="">
+                            <p>Travel inspiration</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center pt-4 gap-4">
+                        <img src="../../../assets/updates.jpg" style="width: 35px;" alt="">
+                        <p>Live journey updates</p>
+                    </div>
+
+                    <div class="d-flex gap-4 pt-5">
+                        <img src="../../../assets/ios-badge-en.jpg" alt="" style="width: 200px;">
+                        <img src="../../../assets/android-badge-en.jpg" alt="" style="width: 200px;">
+                        <img src="../../../assets/huawei-badge-en.jpg" alt="" style="width: 200px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="padding: 5% 0 5% 0;">
+        <div class="container ">
+            <div class="d-flex align-items-center justify-content-center " style="gap: 25%;">
+                <div class="">
+                    <h2 style="font-size: 260%; font-weight: 700; " >Fuel your wanderlust</h2>
+                    <p class="pt-2">Inspiring travel stories from across the world, told <br> through a local lens in our magazine The Window Seat.</p>
+                    <button class="btn mt-4"  style="background-color: #fa6b6b; width: 35%;font-weight: 600; height: 3rem;"><a href="https://www.omio.com/window-seat/" class="text-white text-decoration-none ">Get inspired</a></button>
+                </div>
+
+                <div style="height: 300px; padding-top: 3%;">
+                    <div id="carouselExample" class="carousel slide">
+                        <div class="carousel-inner" style="width: 300px;">
+                          <div class="carousel-item active">
+                            <img src="../../../assets/image-1.png" style="width: 300px; height: 200px;" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../assets/image-2.png" style="width: 300px; height: 200px;" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../assets/image-3.png" style="width: 300px; height: 200px;" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../assets/image-4.png" style="width: 300px; height: 200px;" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../assets/image-5.png" style="width: 300px; height: 200px;" alt="...">
+                          </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                </div>
+            </div>
+        </div>
+
 </section>
+    <section style="background-color: #f1f2f6;padding: 5% 0 5% 10%;" >
+        <div class="container ">
+            <div class="d-flex justify-content-center align-items-center ">
+                <div >
+                    <img src="../../../assets/sectionOne.jpg" style="width: 60%;" alt="">
+                    <h4 style="font-weight: 700; font-size: 1.5rem;" class="pt-3">Compare cheap flights <br> and train tickets with buses</h4>
+                    <p class="pt-3">With Omio, you can compare airline tickets <br> with train tickets and Greyhound bus tickets.</p>
+                </div>
+                <div>
+                    <img src="../../../assets/sectionTwo.jpg" style="width: 60%;" alt="">
+                    <h4 style="font-weight: 700; font-size: 1.5rem;" class="pt-3">Find cheap tickets with <br> ease</h4>
+                    <p>Search and book cheap flight, bus, ferry and <br> train tickets! Discover the best tickets for you <br> with Omio.</p>
+                </div>
+                <div>
+                    <img src="../../../assets/sectionThree.jpg" style="width: 60%;" alt="">
+                    <h4 style="font-weight: 700; font-size: 1.5rem;" class="pt-3">Timetables and tickets for <br> all your travels <br> needs</h4>
+                    <p>Search and book cheap flight, bus, ferry and <br> train tickets! Discover the best tickets for you <br> with Omio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="padding: 5% 0 5% 12%;">
+        <div class="container">
+            <div >
+                <h2 style="font-size: 260%; font-weight: 700; ">Popular destinations right now</h2>
+                <p>Choose between trains, buses, flights and ferries and book your perfect ticket today.</p>
+                <div class="d-flex gap-5 pt-5 justify-content-center ">
+                    <div>
+                        <img src="../../../assets/image-2.png" style="width: 300px; height: 200px;border-radius: 10px;" alt="">
+                        <h5>Jeddah (JED)</h5>
+                        <span></span>
+                    </div>
+                    <div>
+                        <img src="../../../assets/image-4.png" style="width: 300px; height: 200px; border-radius: 10px;" alt="">
+                        <h5>Milan Malpensa Airport (MXP)</h5>
+                        <span></span>
+                    </div>
+                    <div>
+                        <img src="../../../assets/image-5.png" style="width: 300px; height: 200px; border-radius: 10px;" alt="">
+                        <h5>Milan</h5>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <app-footer></app-footer>
+    </section>
+</div>

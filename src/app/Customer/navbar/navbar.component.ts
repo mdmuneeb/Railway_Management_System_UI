@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  isMenuOpen: boolean = false;
+  isNavbarCollapsed = true;
 
-  toggleMenu(): void {
-  this.isMenuOpen = !this.isMenuOpen;
+  toggleNavbar() {
+    this.isNavbarCollapsed = !this.isNavbarCollapsed;
+    
   }
 
 }
