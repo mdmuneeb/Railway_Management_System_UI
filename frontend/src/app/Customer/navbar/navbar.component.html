@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+            <a class="navbar-brand" style="cursor: pointer;" routerLink="landingPageCustomer">RMS</a>
+            <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+  
+      <div class="collapse navbar-collapse bgd" [class.show]="isNavbarCollapsed" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto topnav" style="font-size: 1.5rem;">
+          <li class="nav-item">
+            <a class="nav-link" href="" routerLinkActive ="active">Trains</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" style="width: 7rem;" href="" routerLinkActive ="active ">Sign in</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
