@@ -7,9 +7,10 @@ const port = 3000;
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Use routes
-app.use('/api', userRoutes);
+app.use('/', userRoutes);
 // Add other routes similarly, e.g., app.use('/api', trainRoutes);
 
 app.listen(port, () => {

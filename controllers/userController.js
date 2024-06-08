@@ -1,41 +1,36 @@
 const User = require('../models/userModel');
 
-exports.createUser = (req, res) => {
-  const userData = req.body;
-  User.create(userData, (err, result) => {
+exports.login = (req, res) => {
+  const { User_ID, UserPassword } = req.body;
+  User.findByUserID(User_ID, (err, results) => {
     if (err) throw err;
-    res.send('User added successfully');
+    if (results.length > 0) {
+      const user = results[0];
+      if (UserPassword === user.UserPassword) {
+        res.json({ success: true, UserType: user.UserType });
+      } else {
+        res.status(401).json({ success: false, message: 'Invalid password' });
+      }
+    } else {
+      res.status(404).json({ success: false, message: 'User not found' });
+    }
   });
 };
 
-exports.getAllUsers = (req, res) => {
-  User.getAll((err, result) => {
-    if (err) throw err;
-    res.send(result);
-  });
-};
+exports.register = (req, res) => {
+  const { UserName, UserPassword } = req.body;
 
-exports.getUserById = (req, res) => {
-  const { id } = req.params;
-  User.getById(id, (err, result) => {
-    if (err) throw err;
-    res.json(result);
-  });
-};
+  const newUser = {
+    UserName: UserName,
+    UserPassword: UserPassword,
+    UserType: "passenger"
+  };
 
-exports.updateUser = (req, res) => {
-  const { id } = req.params;
-  const userData = req.body;
-  User.update(id, userData, (err, result) => {
-    if (err) throw err;
-    res.send('User updated successfully');
-  });
-};
-
-exports.deleteUser = (req, res) => {
-  const { id } = req.params;
-  User.delete(id, (err, result) => {
-    if (err) throw err;
-    res.send('User deleted successfully');
+  User.create(newUser, (err, userID) => {
+    if (err) {
+      res.status(500).json({ success: false, message: 'Error registering user' });
+      throw err;
+    }
+    res.json({ success: true, message: 'User registered successfully', User_ID: userID });
   });
 };
