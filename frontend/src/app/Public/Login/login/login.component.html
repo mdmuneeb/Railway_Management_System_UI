@@ -1,18 +1,18 @@
 <section style="height: 100vh; ; margin-bottom: 5%;">
     <div style="padding-top: 6%;">
         <div class="cont" [ngClass]="{ 's--signup': isSignup }" >
-            <div class="form sign-in">
+            <div class="form sign-in" [formGroup]="LogInUserForm">
               <h2 style="margin-top: 5%;">Welcome</h2>
               <label style="margin-top: 12%;">
                 <span class="text-dark">Enter Your ID</span>
-                <input type="text" />
+                <input type="number" formControlName="User_ID"/>
               </label>
               <label>
                 <span class="text-dark">Password</span>
-                <input type="password" />
+                <input type="text" formControlName="UserPassword"/>
               </label>
               <!-- <p class="forgot-pass">Forgot password?</p> -->
-              <button type="button" class="submit">Sign In</button>
+              <button type="button" class="submit" (click)="LogUser()">Sign In</button>
             </div>
             <div class="sub-cont">
               <div class="img">
