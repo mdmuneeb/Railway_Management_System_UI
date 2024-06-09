@@ -6,6 +6,7 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { timeStamp } from 'console';
 import { Router } from '@angular/router';
 import { runInThisContext } from 'vm';
+import { json } from 'stream/consumers';
 
 @Component({
   selector: 'app-login',
@@ -47,19 +48,18 @@ export class LoginComponent implements OnInit{
     .subscribe({
       next: (res) =>{console.log(res);
         if(res.success){
-          console.log("Working success");
           
           if(res.UserType == "admin"){
             this.router.navigate(["/adminPortal"])
           }
           else{
+            let data = JSON.stringify(res)
+            localStorage.setItem("userData", `${data}`)
             this.router.navigate(["/landingPageCustomer"])
           }
-        }
-        else{
-          console.log("Res.success Issue");
           
         }
+
       } 
     })
   }

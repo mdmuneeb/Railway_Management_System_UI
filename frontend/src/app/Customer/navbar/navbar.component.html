@@ -12,8 +12,11 @@
           <!-- <li class="nav-item">
             <a class="nav-link" href="" routerLinkActive ="active">Trains</a>
           </li> -->
-          <li class="nav-item" >
-            <a class="nav-link" style="width: 7rem;" href="loginPage" routerLinkActive ="active">Log in</a>
+          <li class="nav-item" *ngIf="dataPresent">
+            <a class="nav-link" style="width: 7rem;" routerLinkActive ="active">{{jsonDataParsed.UserName}}</a>
+          </li>
+          <li class="nav-item" *ngIf="!dataPresent">
+            <a class="nav-link" style="width: 7rem;" href="loginPage" routerLinkActive ="active">Login</a>
           </li>
         </ul>
       </div>
