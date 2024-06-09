@@ -27,11 +27,11 @@
                   <span class="m--in" *ngIf="isSignup">Sign In</span>
                 </div>
               </div>
-              <div class="form sign-up">
+              <div class="form sign-up" [formGroup]="RegisterUserForm">
                 <h2 style="margin-top: 12%;">Create your Account</h2>
                 <label >
                   <span>Name</span>
-                  <input type="text" />
+                  <input type="text" formControlName="User_Name"/>
                 </label>
                 <!-- <label>
                   <span>Email</span>
@@ -39,9 +39,9 @@
                 </label> -->
                 <label>
                   <span>Password</span>
-                  <input type="password" />
+                  <input type="text" formControlName="UserPassword"/>
                 </label>
-                <button type="button" class="submit">Sign Up</button>
+                <button type="button" class="submit" (click)="RegisterUser()">Sign Up</button>
               </div>
             </div>
           </div>

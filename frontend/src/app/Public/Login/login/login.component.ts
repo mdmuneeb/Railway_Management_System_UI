@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './../../../Services/Public/user.service';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { timeStamp } from 'console';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit{
   
   isSignup: boolean = false;
   LogInUserForm!: FormGroup;
+  RegisterUserForm!: FormGroup;
   
   constructor(private userService: UserService){}
 
@@ -23,7 +25,12 @@ export class LoginComponent implements OnInit{
     this.LogInUserForm = new FormGroup({
       User_ID: new FormControl(null, Validators.required),
       UserPassword: new FormControl(null, Validators.required)
-    })  
+    })
+    
+    this.RegisterUserForm = new FormGroup({
+      User_Name: new FormControl(null, Validators.required),
+      UserPassword: new FormControl(null, Validators.required)
+    })
   }
 
   toggleSignup() {
@@ -37,6 +44,10 @@ export class LoginComponent implements OnInit{
       next: (res) =>{console.log(res);
       } 
     })
+  }
+
+  RegisterUser(){
+    console.log(this.RegisterUserForm.value);
   }
 
 }
