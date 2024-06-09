@@ -12,6 +12,6 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   UserLogin(data:any):Observable<any>{
-    return this.http.get<any>(`${this.url}/login`, data)
+    return this.http.post<any>(`${this.url}/login`, data)
   }
 }

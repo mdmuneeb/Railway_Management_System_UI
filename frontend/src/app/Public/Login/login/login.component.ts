@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from './../../../Services/Public/user.service';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { timeStamp } from 'console';
+import { Router } from '@angular/router';
+import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,9 @@ export class LoginComponent implements OnInit{
   LogInUserForm!: FormGroup;
   RegisterUserForm!: FormGroup;
   
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService,
+  private router: Router
+  ){}
 
   
   ngOnInit(): void {
@@ -39,9 +43,23 @@ export class LoginComponent implements OnInit{
 
   LogUser(){
     console.log(this.LogInUserForm.value);
-    this.userService.UserLogin(this.LogInUserForm.valid)
+    this.userService.UserLogin(this.LogInUserForm.value)
     .subscribe({
       next: (res) =>{console.log(res);
+        if(res.success){
+          console.log("Working success");
+          
+          if(res.UserType == "admin"){
+            this.router.navigate(["/adminPortal"])
+          }
+          else{
+            this.router.navigate(["/landingPageCustomer"])
+          }
+        }
+        else{
+          console.log("Res.success Issue");
+          
+        }
       } 
     })
   }
