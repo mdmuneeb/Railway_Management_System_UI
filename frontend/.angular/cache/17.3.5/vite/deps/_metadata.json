@@ -1,0 +1,127 @@
+{
+  "hash": "e9947215",
+  "configHash": "bcdc22a9",
+  "lockfileHash": "1579716e",
+  "browserHash": "448cae62",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "e4e82abb",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "fbdfdd0a",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "fffb8bd0",
+      "needsInterop": false
+    },
+    "@angular/platform-browser/animations": {
+      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/animations.mjs",
+      "file": "@angular_platform-browser_animations.js",
+      "fileHash": "daf033c6",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "5152b04b",
+      "needsInterop": false
+    },
+    "primeng/button": {
+      "src": "../../../../../node_modules/primeng/fesm2022/primeng-button.mjs",
+      "file": "primeng_button.js",
+      "fileHash": "97c9de5e",
+      "needsInterop": false
+    },
+    "primeng/calendar": {
+      "src": "../../../../../node_modules/primeng/fesm2022/primeng-calendar.mjs",
+      "file": "primeng_calendar.js",
+      "fileHash": "d2f77da2",
+      "needsInterop": false
+    },
+    "primeng/card": {
+      "src": "../../../../../node_modules/primeng/fesm2022/primeng-card.mjs",
+      "file": "primeng_card.js",
+      "fileHash": "f5a2eba0",
+      "needsInterop": false
+    },
+    "primeng/floatlabel": {
+      "src": "../../../../../node_modules/primeng/fesm2022/primeng-floatlabel.mjs",
+      "file": "primeng_floatlabel.js",
+      "fileHash": "656fa0da",
+      "needsInterop": false
+    },
+    "primeng/inputgroup": {
+      "src": "../../../../../node_modules/primeng/fesm2022/primeng-inputgroup.mjs",
+      "file": "primeng_inputgroup.js",
+      "fileHash": "95dc3183",
+      "needsInterop": false
+    },
+    "primeng/inputgroupaddon": {
+      "src": "../../../../../node_modules/primeng/fesm2022/primeng-inputgroupaddon.mjs",
+      "file": "primeng_inputgroupaddon.js",
+      "fileHash": "437dc084",
+      "needsInterop": false
+    },
+    "primeng/tabmenu": {
+      "src": "../../../../../node_modules/primeng/fesm2022/primeng-tabmenu.mjs",
+      "file": "primeng_tabmenu.js",
+      "fileHash": "b9714f47",
+      "needsInterop": false
+    },
+    "@angular/platform-browser/animations/async": {
+      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/animations/async.mjs",
+      "file": "@angular_platform-browser_animations_async.js",
+      "fileHash": "d62ab6fe",
+      "needsInterop": false
+    },
+    "@angular/material/icon": {
+      "src": "../../../../../node_modules/@angular/material/fesm2022/icon.mjs",
+      "file": "@angular_material_icon.js",
+      "fileHash": "feeeb128",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "browser-SYQSDYIL": {
+      "file": "browser-SYQSDYIL.js"
+    },
+    "chunk-D5AIHBIX": {
+      "file": "chunk-D5AIHBIX.js"
+    },
+    "chunk-XBCWIJVN": {
+      "file": "chunk-XBCWIJVN.js"
+    },
+    "chunk-A3ZPPXJY": {
+      "file": "chunk-A3ZPPXJY.js"
+    },
+    "chunk-Y4P6UIKI": {
+      "file": "chunk-Y4P6UIKI.js"
+    },
+    "chunk-WBBJIBM3": {
+      "file": "chunk-WBBJIBM3.js"
+    },
+    "chunk-NFC6R6AL": {
+      "file": "chunk-NFC6R6AL.js"
+    },
+    "chunk-VT23TZKU": {
+      "file": "chunk-VT23TZKU.js"
+    },
+    "chunk-GBTJ6MU5": {
+      "file": "chunk-GBTJ6MU5.js"
+    },
+    "chunk-WYZH2ALO": {
+      "file": "chunk-WYZH2ALO.js"
+    },
+    "chunk-Y7SSLZZF": {
+      "file": "chunk-Y7SSLZZF.js"
+    }
+  }
+}

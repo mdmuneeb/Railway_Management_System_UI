@@ -1,0 +1,48 @@
+<section #bodypd id="body-pd" class="h-100">
+    <header #headerpd class="header" id="header">
+      <div #toggle id="header-toggle">
+        <mat-icon>sort</mat-icon>
+      </div>
+      
+     
+      <div class="header_img">
+        <mat-icon>person</mat-icon>
+      </div>
+    </header>
+    <div class="l-navbar" #nav id="nav-bar">
+      <nav class="nav">
+        <div>
+          <a  class="nav_logo">
+            <!-- <img class="bx bx-layer nav_logo-icon" src="assets/train_logo_2.jpg" width="30" height="30" > -->
+            <mat-icon class="text-white">subway</mat-icon>
+            <span class="nav_logo-name">RMS ADMIN</span>
+          </a>
+          <div class="nav_list">
+            <a routerLink="trainsInfo" class="nav_link" style="cursor: pointer;" routerLinkActive="active">
+              <mat-icon class="bx bx-grid-alt nav_icon">train</mat-icon>
+              <span class="nav_name">Trains</span>
+            </a>
+            <a routerLink="passengersInfo" class="nav_link" style="cursor: pointer;"  routerLinkActive="active">
+                <mat-icon class="bx bx-grid-alt nav_icon">group</mat-icon>
+              <span class="nav_name">Passengers</span>
+            </a>
+            <a routerLink="stationInfo" class="nav_link"  routerLinkActive="active">
+                <mat-icon class="bx bx-grid-alt nav_icon">transfer_within_a_station</mat-icon>
+              <span class="nav_name">Station</span>
+            </a>
+            <a routerLink="routeInfo"  class="nav_link"  routerLinkActive="active">
+              <mat-icon class="bx bx-grid-alt nav_icon">route</mat-icon>
+              <span class="nav_name">Route</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!--Container Main start-->
+    <div class="content">
+      <!-- <app-trains-info></app-trains-info> -->
+      <router-outlet></router-outlet>
+    </div>
+    
+  </section>
+  
