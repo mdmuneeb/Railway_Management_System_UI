@@ -1,8 +1,8 @@
 const User = require('../models/userModel');
 
-exports.login = (req, res) => {
+exports.login = async (req, res) => {
   const { User_ID, UserPassword } = req.body;
-  User.findByUserID(User_ID, (err, results) => {
+  await User.findByUserID(User_ID, (err, results) => {
     if (err) throw err;
     if (results.length > 0) {
       const user = results[0];
@@ -17,7 +17,7 @@ exports.login = (req, res) => {
   });
 };
 
-exports.register = (req, res) => {
+exports.register = async (req, res) => {
   const { UserName, UserPassword } = req.body;
 
   const newUser = {
@@ -26,7 +26,7 @@ exports.register = (req, res) => {
     UserType: "passenger"
   };
 
-  User.create(newUser, (err, userID) => {
+  await User.create(newUser, (err, userID) => {
     if (err) {
       res.status(500).json({ success: false, message: 'Error registering user' });
       throw err;
