@@ -1,7 +1,7 @@
 <section class="shadow">
     <div style="padding: 2% 10% 2% 10%;">
         <div class="d-flex justify-content-between align-items-center ">
-            <h3 style="font-weight: 900; color: #1e4620;" >RMS</h3>
+            <h3 style="font-weight:900; color: #1e4620; font-size: 40px;" >RMS</h3>
             <ul class="list-unstyled ">
                 <li ><button class="btn" style="color: #1e4620;">Sign in</button></li>
             </ul>
@@ -27,7 +27,31 @@
     </div>
 </section>
 <!-- style="background-color: #f1f2f6; margin-top: 0.5%;" -->
-<section style="margin-top: 1%;">
-        <p-tabMenu [model]="items" class="custom-tab-menu"></p-tabMenu>
+<section style="margin-top: 0.7%; background-color: #f1f2f6;padding: 2% 8% 100% 8%;" >
+    <div class="card">
+        
+    <p-tabView [(activeIndex)]="activeIndex">
+    <p-tabPanel header="Trains">
+        <div class="card flex justify-content-center">
+            <p-card header="Simple Card">
+                <p class="m-0">
+                    trains dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
+                    quas!
+                </p>
+            </p-card>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Booked">
+        <div class="card flex justify-content-center">
+            <p-card header="Simple Card">
+                <p class="m-0">
+                    Booked dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
+                    quas!
+                </p>
+            </p-card>
+        </div>
+    </p-tabPanel>
+    </p-tabView>
+    </div>
 </section>
 
