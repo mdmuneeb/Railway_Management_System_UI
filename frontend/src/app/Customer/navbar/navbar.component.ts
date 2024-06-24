@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit{
     jsonDataParsed!:any;
   
   ngOnInit(): void {
-    let jsonData = localStorage.getItem("userData");
+    let jsonData = sessionStorage.getItem("userData");
     if (jsonData){
       this.dataPresent = true
       this.jsonDataParsed = JSON.parse(jsonData);
