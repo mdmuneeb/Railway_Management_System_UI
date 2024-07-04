@@ -5,6 +5,7 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { ButtonModule } from 'primeng/button';
 import { TabViewModule } from 'primeng/tabview';
 import { CardModule } from 'primeng/card';
+import { AdminDataService } from '../../Services/Admin/admin-data.service';
 
 
 @Component({
@@ -17,7 +18,13 @@ import { CardModule } from 'primeng/card';
 export class TicketPreviewComponent implements OnInit {
   activeIndex: number = 0;
 
+  constructor (private adminService: AdminDataService){}
+
   ngOnInit(){
-    
+  console.log(
+    this.adminService.To,
+    this.adminService.From,
+    this.adminService.Date
+  );    
   }
 }

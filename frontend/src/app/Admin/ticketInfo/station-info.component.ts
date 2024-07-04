@@ -1,30 +1,30 @@
+import { ImplicitReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { AdminDataService } from '../../Services/Admin/admin-data.service';
-import { log } from 'console';
 import { TableModule } from 'primeng/table';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-passengers-info',
+  selector: 'app-station-info',
   standalone: true,
   imports: [TableModule, CommonModule],
-  templateUrl: './passengers-info.component.html',
-  styleUrl: './passengers-info.component.scss'
+  templateUrl: './station-info.component.html',
+  styleUrl: './station-info.component.scss'
 })
-export class PassengersInfoComponent implements OnInit{
-
-  constructor(private adminService: AdminDataService){}
-  passengersData!:any[];
-
+export class StationInfoComponent implements OnInit{
+  
+  constructor (private adminService: AdminDataService){}
+  ticketsData!: any[];
+  
   ngOnInit(): void {
-
-    this.adminService.getAllPassengers()
+    this.adminService.getAllTicket()
     .subscribe({
       next: (res) => {
-        this.passengersData = res
+        this.ticketsData = res
         console.log(res);
         
       }
     })
   }
+
 }

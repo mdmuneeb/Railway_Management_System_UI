@@ -1,33 +1,42 @@
 <h1 style="margin-top: 30px; font-weight:550; font-size: 40px;" class="">Passengers Info</h1>
 <div class="card" style="margin-top: 30px;">
-    <p-table [value]="passengersData" [tableStyle]="{'min-width': '60rem'}">
+    <p-table [value]="ticketsData" [tableStyle]="{'min-width': '60rem'}">
         <ng-template pTemplate="header">
             <tr>
                 <th pSortableColumn="sno" style="width:20%">
-                    S.No<p-sortIcon field="sno" />
+                    S.No<p-sortIcon field="sno"/>
                 </th>
                 <th pSortableColumn="name" style="width:20%">
-                    Passenger Name<p-sortIcon field="name" />
+                    Passenger ID<p-sortIcon field="name" />
                 </th>
                 <th pSortableColumn="gender" style="width:20%">
-                    gender <p-sortIcon field="gender" />
+                    Scedule ID <p-sortIcon field="gender" />
                 </th>
                 <th pSortableColumn="phone_number" style="width:20%">
-                    Phone Number <p-sortIcon field="phone_number" />
+                    User ID <p-sortIcon field="phone_number" />
                 </th>
+                <th pSortableColumn="phone_number" style="width:20%">
+                    Date <p-sortIcon field="phone_number" />
+                </th>
+                <th pSortableColumn="phone_number" style="width:20%">
+                    Seat Number <p-sortIcon field="phone_number" />
+                </th>
+
+
                 <th pSortableColumn="category" style="width:20%">
-                     <!-- <p-sortIcon field="category" /> -->
                 </th>
                 <th pSortableColumn="quantity" style="width:20%">
                 </th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-passengerData let-i = "rowIndex">
+        <ng-template pTemplate="body" let-ticketData let-i="rowIndex">
             <tr>
-                <td>{{ i+1 }}</td>
-                <td>{{ passengerData.name}}</td>
-                <td>{{ passengerData.gender}}</td>
-                <td>{{ passengerData.phone_number}}</td>
+                <td>{{ i+1}}</td>
+                <td>{{ ticketData.passenger_id}}</td>
+                <td>{{ ticketData.sch_id}}</td>
+                <td>{{ ticketData.User_ID}}</td>
+                <td>{{ ticketData.date}}</td>
+                <td>{{ ticketData.seatNo}}</td>
                 <!-- <td style="padding-left: 25px;">{{ passengerData }}</td> -->
                 <td>
                     <button class="btn btn-primary" style="width: 10rem;"> Edit</button>

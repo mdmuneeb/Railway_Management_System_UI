@@ -9,19 +9,23 @@ import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent implements OnInit{
-    dataPresent!:boolean;
+    dataPresent = false;
     jsonDataParsed!:any;
   
   ngOnInit(): void {
-    let jsonData = sessionStorage.getItem("userData");
-    if (jsonData){
-      this.dataPresent = true
-      this.jsonDataParsed = JSON.parse(jsonData);
-      console.log(this.jsonDataParsed);
+    if (typeof sessionStorage !== 'undefined'){
+      let jsonData = sessionStorage.getItem("userData");
+      if (jsonData){
+        this.dataPresent = true
+        this.jsonDataParsed = JSON.parse(jsonData);
+        console.log(this.jsonDataParsed);
+      }
+      else{
+        this.dataPresent = false
+      }  
+    }else {
+      console.error('sessionStorage is not available');
     }
-    else{
-      this.dataPresent = false
-    }  
   }
   isNavbarCollapsed = true;
 

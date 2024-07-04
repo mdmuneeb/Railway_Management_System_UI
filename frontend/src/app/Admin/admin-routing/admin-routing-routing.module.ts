@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TrainsInfoComponent } from '../trains-info/trains-info.component';
 import { PassengersInfoComponent } from '../passengers-info/passengers-info.component';
-import { RouteInfoComponent } from '../route-info/route-info.component';
-import { StationInfoComponent } from '../station-info/station-info.component';
+import { RouteInfoComponent } from '../scheduleInfo/route-info.component';
+import { StationInfoComponent } from '../ticketInfo/station-info.component';
 import { AdminPortalComponent } from '../admin-portal/admin-portal.component';
 
 

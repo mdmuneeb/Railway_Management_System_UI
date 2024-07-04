@@ -48,7 +48,6 @@ export class LoginComponent implements OnInit{
     .subscribe({
       next: (res) =>{console.log(res);
         if(res.success){
-          
           if(res.UserType == "admin"){
             this.router.navigate(["/adminPortal"])
           }

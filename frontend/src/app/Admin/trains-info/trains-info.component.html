@@ -1,32 +1,36 @@
-<!-- <section>
-    <div class="card">
-        <p-table [value]="products1" [tableStyle]="{'min-width': '60rem'}">
-            <ng-template pTemplate="header">
-                <tr>
-                    <th pSortableColumn="code" style="width:20%">
-                        Code <p-sortIcon field="code" />
-                    </th>
-                    <th pSortableColumn="name" style="width:20%">
-                        Name <p-sortIcon field="name" />
-                    </th>
-                    <th pSortableColumn="category" style="width:20%">
-                        Category <p-sortIcon field="category" />
-                    </th>
-                    <th pSortableColumn="quantity" style="width:20%">
-                        Quantity <p-sortIcon field="quantity" />
-                    </th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-product>
-                <tr>
-                    <td>{{ product.code }}</td>
-                    <td>{{ product.name }}</td>
-                    <td>{{ product.category }}</td>
-                    <td>{{ product.quantity }}</td>
-                </tr>
-            </ng-template>
-        </p-table>
-    </div>
-</section> -->
-
-<p>Train working!</p>
+<h1 style="margin-top: 30px; font-weight:550; font-size: 40px;" class="">Trains Info</h1>
+<div class="card" style="margin-top: 30px;">
+    <p-table [value]="trainsData" [tableStyle]="{'min-width': '60rem'}">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="sno" style="width:20%">
+                    S.No <p-sortIcon field="sno" />
+                </th>
+                <th pSortableColumn="train_id" style="width:20%">
+                    Train ID <p-sortIcon field="train_id" />
+                </th>
+                <th pSortableColumn="capacity" style="width:20%">
+                    Capacity <p-sortIcon field="capacity" />
+                </th>
+                <th pSortableColumn="category" style="width:20%">
+                     <!-- <p-sortIcon field="category" /> -->
+                </th>
+                <th pSortableColumn="quantity" style="width:20%">
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-trainData let-i="rowIndex">
+            <tr>
+                <td>{{ i+1 }}</td>
+                <td>{{ trainData.train_id }}</td>
+                <td style="padding-left: 25px;">{{ trainData.capacity }}</td>
+                <td>
+                    <button class="btn btn-primary" style="width: 10rem;"> Edit</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" style="width: 10rem;"> Delete</button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
