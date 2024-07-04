@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit{
           }
           else{
             let data = JSON.stringify(res)
-            localStorage.setItem("userData", `${data}`)
+            sessionStorage.setItem("userData", `${data}`)
             this.router.navigate(["/landingPageCustomer"])
           }
           
