@@ -1,8 +1,8 @@
 const User = require('../models/userModel');
 
 exports.login = async (req, res) => {
-  const { User_ID, UserPassword } = req.body;
-  await User.findByUserID(User_ID, (err, results) => {
+  const { Email, UserPassword } = req.body;
+  await User.findByUserID(Email, (err, results) => {
     if (err) throw err;
     if (results.length > 0) {
       const user = results[0];
@@ -18,12 +18,13 @@ exports.login = async (req, res) => {
 };
 
 exports.register = async (req, res) => {
-  const { UserName, UserPassword } = req.body;
+  const { Email, UserPassword, UserName } = req.body;
 
   const newUser = {
-    UserName: UserName,
     UserPassword: UserPassword,
-    UserType: "passenger"
+    UserName: UserName,
+    UserType: "passenger",
+    Email: Email,
   };
 
   await User.create(newUser, (err, userID) => {
