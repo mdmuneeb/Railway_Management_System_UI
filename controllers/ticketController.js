@@ -15,6 +15,19 @@ exports.getAll = (req, res) => {
     });
 }
 
+// controller for the api for retrieving tickets by user id
+exports.getTicketsByUserId = (req, res) => {
+    const { User_ID } = req.body;
+    Ticket.findByUserId(User_ID, (err, results) => {
+        if (err) {
+            return res.status(404).json({ message: 'Database query error' });
+        }
+        if (results.length === 0) {
+            return res.status(404).json({ success: false, message: 'No tickets found for this User' });
+        }
+        res.json(results);
+    });
+};
 // Retrieve a ticket by composite key
 exports.getTickets = (req, res) => {
     const { User_ID, passenger_id, sch_id } = req.body;

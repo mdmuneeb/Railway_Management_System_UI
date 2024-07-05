@@ -7,6 +7,11 @@ const Ticket = {
         const sql = 'SELECT * FROM ticket';
         con.query(sql, callback);
     },
+    // Find tickets by user ID
+    findByUserId: function (User_ID, callback) {
+        const sql = 'SELECT * FROM ticket WHERE User_ID = ?';
+        con.query(sql, [User_ID], callback);
+    },
     // Retrieve a ticket by composite key
     findByCompositeKey: function (User_ID, passenger_id, sch_id, callback) {
         const sql = 'SELECT * FROM ticket WHERE User_ID = ? AND passenger_id = ? AND sch_id = ?';
