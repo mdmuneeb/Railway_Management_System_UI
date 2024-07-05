@@ -3,23 +3,33 @@
         <div class="d-flex justify-content-between align-items-center ">
             <h3 style="font-weight:900; color: #1e4620; font-size: 40px;" >RMS</h3>
             <ul class="list-unstyled ">
-                <li ><button class="btn" style="color: #1e4620;">Sign in</button></li>
+                <li ><button class="btn" style="color: #1e4620;" (click)="showDialog()">{{gotData? data.UserName: "Login"}}</button></li>
             </ul>
         </div>
-        <div class="pt-3">
+        <div class="pt-3" [formGroup]="ticketInput">
             <div class="d-flex" >
                 <p-floatLabel style="width: 30%">
-                    <input id="From:" type="text" pInputText class="form-control" style="width: 99%; margin-right: 2px; background-color: #f1f2f6; height: 3rem"/>
-                    <label for="From:">From: City, Station</label>
+                    <input id="From:" type="text" [disabled]="true" pInputText class="form-control" formControlName="From" style="width: 99%; margin-right: 2px; background-color: #f1f2f6; height: 3rem"/>
+                    <!-- <label for="From:">From: City, Station</label> -->
                 </p-floatLabel>
+                
+                <!-- <div class="flex flex-column gap-2">
+                    <label >From</label>
+                    <input 
+                        class="form-control"
+                        pInputText 
+                        style="width: 99%; margin-right: 2px; background-color: #f1f2f6; height: 3rem"
+                        />
+                        
+                </div> -->
                 <p-floatLabel style="width: 30%">
-                    <input id="To:" type="text" pInputText  class="form-control" style="width: 99%; background-color: #f1f2f6;  height: 3rem; margin-right: 2px;"/>
-                    <label for="To:">To: City, Station</label>
+                    <input id="To:" type="text" pInputText formControlName="To" [disabled]="true"  class="form-control" style="width: 99%; background-color: #f1f2f6;  height: 3rem; margin-right: 2px;"/>
+                    <!-- <label for="To:">To: City, Station</label> -->
                 </p-floatLabel>
                 <p-floatLabel style="margin-right: 5px; width: 30%;" >
                     <!-- <input id="username" type="text" pInputText  class="form-control " style="width: 99%; background-color: #f1f2f6;  height: 3rem; margin-right: 5px;"/> -->
-                    <p-calendar [style]="{ 'width': '99%', 'background-color': '#f1f2f6', 'height': '3rem' }"></p-calendar>
-                    <label for="username">Calendar</label>
+                    <p-calendar formControlName="Date" [disabled]="true" [style]="{ 'width': '99%', 'background-color': '#f1f2f6', 'height': '3rem' }"></p-calendar>
+                    <!-- <label for="username">Calendar</label> -->
                 </p-floatLabel>
                 <button  class="btn text-white"  style="background-color: #1e4620; width: 15%;font-weight: 500;">Search</button>
             </div>
@@ -27,13 +37,13 @@
     </div>
 </section>
 <!-- style="background-color: #f1f2f6; margin-top: 0.5%;" -->
-<section style="margin-top: 0.7%; background-color: #f1f2f6;padding: 2% 8% 100% 8%;" >
+<section style="margin-top: 0.7%; background-color: #f1f2f6;padding: 2% 8% 30% 8%;" >
     <div class="card">
         
-    <p-tabView [(activeIndex)]="activeIndex">
-    <p-tabPanel header="Trains">
+    <p-tabView [(activeIndex)]="activeIndex" styleClass="custom-tab">
+    <p-tabPanel header="Trains" >
         <div class="card flex justify-content-center">
-            <p-card header="Simple Card">
+            <p-card header="Trains Card">
                 <p class="m-0">
                     trains dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
                     quas!
@@ -42,8 +52,8 @@
         </div>
     </p-tabPanel>
     <p-tabPanel header="Booked">
-        <div class="card flex justify-content-center">
-            <p-card header="Simple Card">
+        <div class="card flex justify-content-center mb-4" *ngFor="let ticket of allUserBookedTickets">
+            <p-card header="{{ticket.sch_id}}">
                 <p class="m-0">
                     Booked dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
                     quas!
@@ -54,4 +64,12 @@
     </p-tabView>
     </div>
 </section>
+
+<div class="card flex justify-content-center">
+    <p-dialog header="Log Out" [(visible)]="visible" [style]="{ width: '25rem' }">
+        <div class="d-flex justify-content-center gap-2">
+            <button class="btn btn-primary " style="width: 7rem;" (click)="logOutUser()" >Log Out    </button>
+        </div>
+    </p-dialog>
+</div>
 

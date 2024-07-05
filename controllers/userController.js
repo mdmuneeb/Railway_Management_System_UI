@@ -7,7 +7,7 @@ exports.login = async (req, res) => {
     if (results.length > 0) {
       const user = results[0];
       if (UserPassword === user.UserPassword) {
-        res.json({ success: true, UserType: user.UserType, UserName: user.UserName});
+        res.json({ success: true, UserType: user.UserType, UserName: user.UserName, UserId: user.User_ID});
       } else {
         res.status(401).json({ success: false, message: 'Invalid password' });
       }

@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit{
   
   ngOnInit(): void {
     this.LogInUserForm = new FormGroup({
-      User_ID: new FormControl(null, Validators.required),
+      Email: new FormControl(null, Validators.required),
       UserPassword: new FormControl(null, Validators.required)
     })
     
@@ -48,11 +48,12 @@ export class LoginComponent implements OnInit{
     .subscribe({
       next: (res) =>{console.log(res);
         if(res.success){
+          let data = JSON.stringify(res)
           if(res.UserType == "admin"){
+            sessionStorage.setItem("userData", `${data}`)
             this.router.navigate(["/adminPortal"])
           }
           else{
-            let data = JSON.stringify(res)
             sessionStorage.setItem("userData", `${data}`)
             this.router.navigate(["/landingPageCustomer"])
           }
