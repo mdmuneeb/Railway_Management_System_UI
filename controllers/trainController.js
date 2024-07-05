@@ -1,5 +1,5 @@
 const train = require('../models/trainModels');
-
+// getting all the trains information
 exports.getTrains = (req, res) => {
     train.findAllTrains((err, results) => {
         if (err) {

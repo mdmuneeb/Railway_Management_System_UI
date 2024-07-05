@@ -40,6 +40,20 @@ exports.addSchedule = (req, res) => {   //create Schedule
     });
 }
 
+// Retrieve schedules by start and end locations
+exports.getTrainByStartEnd = (req, res) => {
+    const { start, end } = req.body;
+
+    Schedule.findtrainbystartend(start, end, (err, results) => {
+        if (err) {
+            return res.status(500).json({ success: false, message: 'Database query error' });
+        }
+        if (results.length === 0) {
+            return res.status(404).json({ success: false, message: 'No schedules found for the given start and end locations' });
+        }
+        res.json({ success: true, schedules: results });
+    });
+};
 
 exports.updateSchedule = (req, res) => {
     const { sch_id, train_id, start, end, departure_time, arrival_time} = req.body;
