@@ -17,7 +17,11 @@ export class CustomerServiceService {
 
   getAllBookedTickets(id: any): Observable<any>{
     return this.http.post<any>(`${this.url}/get-tickets-by-user-id`, {
-      "User_ID": 1
+      "User_ID": id
     })
+  }
+
+  getUserWantTicket(data:any): Observable<any>{
+    return this.http.post<any>(`${this.url}/schedule-by-start-end`, data)
   }
 }

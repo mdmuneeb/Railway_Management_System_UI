@@ -11,19 +11,17 @@ import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogModule } from 'primeng/dialog';
 import { Router } from '@angular/router';
-
+import { DialogService, DynamicDialogModule, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { AddTicketComponent } from './add-ticket/add-ticket.component';
 
 @Component({
   selector: 'app-ticket-preview',
   standalone: true,
-  imports: [CalendarModule, FloatLabelModule, ButtonModule, TabViewModule, CardModule, CommonModule, ReactiveFormsModule, FormsModule, DialogModule],
-
-
-
-
+  imports: [CalendarModule, FloatLabelModule, ButtonModule, TabViewModule, CardModule, CommonModule, ReactiveFormsModule, FormsModule, DynamicDialogModule, DialogModule],
   templateUrl: './ticket-preview.component.html',
   styleUrl: './ticket-preview.component.scss',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  providers: [DialogService]
 })
 export class TicketPreviewComponent implements OnInit {
   activeIndex: number = 0;
@@ -31,22 +29,35 @@ export class TicketPreviewComponent implements OnInit {
   data !: any;
   gotData = false;
   allUserBookedTickets!: any[]
-  From: string = '';
-  To = ""
-  Date = ""
+  userFrom: string = '';
+  userTo: string = ''
+  userDate: string = ''
   ticketInput!: FormGroup; 
   visible: boolean = false;
+  isDisabled = true;
+  trainsInfo!: any;
+  ref: DynamicDialogRef | undefined;
+
+
   constructor (private adminService: AdminDataService,
   private customerService: CustomerServiceService,
-  private router: Router
+  private router: Router,
+  public dialogService: DialogService
   ){}
 
   ngOnInit(){
+    
+
   console.log(
     this.adminService.To,
     this.adminService.From,
     this.adminService.Date
   );
+  this.userFrom = this.adminService.From;
+  this.userTo = this.adminService.To;
+  this.userDate = this.adminService.Date;
+
+  this.userDefineTicket()
 
   this.ticketInput = new FormGroup({
     To: new FormControl(null),
@@ -55,9 +66,9 @@ export class TicketPreviewComponent implements OnInit {
   })
 
   this.ticketInput.patchValue({
-    To: this.adminService.To,
-    From: this.adminService.From,
-    Date: this.adminService.Date,
+    To: this.userTo,
+    From: this.userFrom,
+    Date: this.userDate,
   })
 
 
@@ -69,16 +80,17 @@ export class TicketPreviewComponent implements OnInit {
     this.customerService.getAllBookedTickets(this.data.UserId)
     .subscribe({
       next: (res) =>{
-        this.allUserBookedTickets = res
         console.log(res);
+        this.allUserBookedTickets = res
       },
       error: (err)=>{
         console.error("Error", err)
       }
     })
   
-}
   }
+}
+
 
   logOutUser(){
     if(typeof sessionStorage !== undefined){
@@ -89,5 +101,36 @@ export class TicketPreviewComponent implements OnInit {
 
   showDialog() {
     this.visible = true;
-}
+  }
+
+
+  userDefineTicket(){
+    let obj = {
+      "start": this.userFrom,
+      "end": this.userTo
+    }
+    this.customerService.getUserWantTicket(obj)
+    .subscribe({
+      next: (res) =>
+      {
+        console.log(res.schedules[0]);
+        this.trainsInfo = res.schedules[0]
+      }
+    }) 
+  }
+
+  bookTicket(){
+    this.ref = this.dialogService.open(AddTicketComponent, {
+      header: 'Create Ticket',
+      width: '50vw',
+      modal:true,
+      breakpoints: {
+          '960px': '75vw',
+          '640px': '90vw'
+      },
+      data: {
+        UserId: this.data.UserId
+      }
+  });
+  }
 }

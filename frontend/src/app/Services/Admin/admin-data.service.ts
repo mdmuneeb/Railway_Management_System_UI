@@ -39,4 +39,8 @@ export class AdminDataService {
     this.Date = date
   }
 
+  getTrainById(id:any){
+    return this.http.get
+  }
+
 }

@@ -1,0 +1,31 @@
+<div>
+    <form>
+        <div class="mb-3" [formGroup]="scheduleData">
+          <label class="form-label">Train Id</label>
+          <input type="text" class="form-control" formControlName="train_id">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Schedule Id</label>
+          <input type="text" class="form-control" formControlName="sch_id">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Station (depart)</label>
+          <input type="text" class="form-control" formControlName="start">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Station (arrival)</label>
+          <input type="text" class="form-control" formControlName="end">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Departure Time</label>
+          <input type="text" class="form-control" formControlName="departure_time">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Arrival Time</label>
+          <input type="text" class="form-control" formControlName="arrival_time">
+        </div>
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="form-control btn text-white" style="background-color: #1e4620; width: 20%;">Submit</button>
+        </div>
+      </form>
+</div>
