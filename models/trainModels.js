@@ -7,6 +7,12 @@ const Train = {
         con.query(sql, callback);
       },
 
+    // this is the implementation for the specific train id
+    findByTrainID: function(train_id, callback) {
+        const sql = 'SELECT * FROM train WHERE train_id = ?';
+        con.query(sql, [train_id], callback);
+      },
+      
     // this is the implementation for creating a new train
     create: function (train, callback) {
         const sql = 'INSERT INTO train (train_id, capacity)  VALUES (?,?)'
@@ -36,11 +42,7 @@ const Train = {
             callback(null, result.affectedRows);  // Number of rows affected
         });
     }
-    // this is the implementation for the specific train id
-    // findByTrainID: function(train_id, callback) {
-    //     const sql = 'SELECT * FROM train WHERE train_id = ?';
-    //     con.query(sql, [train_id], callback);
-    //   },
+    
 }
 
 

@@ -7,6 +7,11 @@ const Schedule = {
     con.query(sql, callback);
   },
 
+  // Get schedule by sch_id
+  getScheduleById: function (sch_id, callback) {
+    const sql = 'SELECT * FROM schedule WHERE sch_id = ?';
+    con.query(sql, [sch_id], callback);
+  },
   //  finding train_id through start and end
   findtrainbystartend: function (start,end,callback){
     const sql ='Select * FROM schedule WHERE start = ? AND end = ?'

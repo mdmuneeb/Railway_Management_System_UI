@@ -12,6 +12,20 @@ exports.getTrains = (req, res) => {
     });
 };
 
+// this is the implementation to get specific train id
+exports.getTrainsByID = (req, res) => {
+    const { train_id } = req.body;
+    train.findByTrainID(train_id, (err, results) => {
+        if (err) {
+            res.status(404).json({message: 'Database query error'});
+        }
+        if (results.length<0) {
+            res.status(404).json({success: false, message: 'Data not found'});
+        }
+        res.json(results);
+    }) 
+};
+
 exports.create = (req, res) => {
     const { train_id, capacity } = req.body;
 
@@ -65,16 +79,3 @@ exports.delete = (req, res) => {
 }
 
 
-// this is the implementation to get specific train id
-// exports.getTrains = (req, res) => {
-//     const { train_id } = req.body;
-//     train.findByTrainID(train_id, (err, results) => {
-//         if (err) {
-//             res.status(404).json({message: 'Database query error'});
-//         }
-//         if (results.length<0) {
-//             res.status(404).json({success: false, message: 'Data not found'});
-//         }
-//         res.json(results);
-//     }) 
-// }

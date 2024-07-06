@@ -1,5 +1,6 @@
 const Schedule = require('../models/scheduleModels');
 
+// Retrieve all schedules
 exports.getAllSchedules = (req, res) => {
     Schedule.getAllSchedules((err, results) => {
         if (err) {
@@ -11,6 +12,25 @@ exports.getAllSchedules = (req, res) => {
     });
 };
 
+// Get schedule by sch_id
+exports.getScheduleById = (req, res) => {
+    const { sch_id } = req.body;
+
+    Schedule.getScheduleById(sch_id, (err, results) => {
+        if (err) {
+            res.status(500).json({ error: 'Database query error' });
+            console.error(err);
+            return;
+        }
+        if (results.length === 0) {
+            res.status(404).json({ error: 'No schedule found for the given ID' });
+            return;
+        }
+        res.json(results);
+    });
+}
+
+// Adding new schedule
 exports.addSchedule = (req, res) => {   //create Schedule
 
     // const newRoute = {
@@ -55,6 +75,7 @@ exports.getTrainByStartEnd = (req, res) => {
     });
 };
 
+// update schedule
 exports.updateSchedule = (req, res) => {
     const { sch_id, train_id, start, end, departure_time, arrival_time} = req.body;
     const schedule = {
@@ -77,6 +98,7 @@ exports.updateSchedule = (req, res) => {
 }
 
 
+// Delete schedule
 exports.deleteSchedule = (req,res) => {
     // const Route_ID = "RTE001"  // Testing Data
     const { sch_id } = req.body;
