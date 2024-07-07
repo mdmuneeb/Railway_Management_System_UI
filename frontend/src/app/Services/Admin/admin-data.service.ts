@@ -39,8 +39,18 @@ export class AdminDataService {
     this.Date = date
   }
 
-  getTrainById(id:any){
-    return this.http.get
+  getTicketById(data:any){
+    return this.http.post<any>(`${this.url}/get-tickets`, data)
+  }
+
+  getTrainById(id:any): Observable<any>{
+    return this.http.post<any>(`${this.url}/get-trains-by-id`, {
+      train_id: id
+    })
+  }
+
+  updateTrain(data:any):Observable<any>{
+    return this.http.put<any>(`${this.url}/update-trains`, data)
   }
 
 }

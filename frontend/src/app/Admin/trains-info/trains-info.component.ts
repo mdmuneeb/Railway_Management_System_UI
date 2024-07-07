@@ -24,14 +24,7 @@ export class TrainsInfoComponent implements OnInit{
   
 
   ngOnInit(): void {
-    this.adminService.getAllTrains()
-    .subscribe({
-      next: (res) => {
-        this.trainsData = res
-        console.log(res);
-        
-      }    
-    })
+    this.callAllTrains()
   }
   openEditTrain(id:string){
     this.ref = this.dialogService.open(EditTrainInfoComponent, {
@@ -43,8 +36,19 @@ export class TrainsInfoComponent implements OnInit{
           '640px': '90vw'
       },
       data:{
-        Id: id
+        Id: id,
+        getTrains: this.callAllTrains.bind(this)
       }
   });
+  }
+
+  callAllTrains(){
+    this.adminService.getAllTrains()
+    .subscribe({
+      next: (res) => {
+        this.trainsData = res
+        console.log(res);
+      }    
+    })
   }
 }

@@ -37,7 +37,7 @@
     </div>
 </section>
 <!-- style="background-color: #f1f2f6; margin-top: 0.5%;" -->
-<section style="margin-top: 0.7%; background-color: #f1f2f6;padding: 2% 8% 30% 8%;" >
+<section style="margin-top: 0.7%; background-color: #f1f2f6;padding: 2% 8% 3.92% 8%;" >
     <div class="card">
         
     <p-tabView [(activeIndex)]="activeIndex" styleClass="custom-tab">
@@ -59,11 +59,11 @@
         <div class="card flex justify-content-center mb-4" *ngFor="let ticket of allUserBookedTickets">
             <p-card header="RMS">
                 <div class="d-flex justify-content-around align-items-baseline" style="color: #1e4620;">
-                    <p><b style="color: #1e4620;">Train No:</b> {{trainsInfo.train_id}}</p>
-                    <p><b style="color: #1e4620;">Departure:</b>  {{trainsInfo.start}}</p>
-                    <p><b style="color: #1e4620;">Train Arrival:</b> {{trainsInfo.end}}</p>
-                    <p><b style="color: #1e4620;">Departure Time:</b> {{trainsInfo.departure_time}}</p>
-                    <p><b style="color: #1e4620;">Arrival Time:</b> {{trainsInfo.arrival_time}}</p>
+                    <p><b style="color: #1e4620;">User Id:</b> {{ticket.User_ID}}</p>
+                    <p><b style="color: #1e4620;">Booked Date:</b>  {{ticket.date}}</p>
+                    <p><b style="color: #1e4620;">Passenger Id:</b> {{ticket.passenger_id}}</p>
+                    <p><b style="color: #1e4620;">Schedule Id:</b> {{ticket.sch_id}}</p>
+                    <p><b style="color: #1e4620;">Seat Number:</b> {{ticket.seatNo}}</p>
                     <button  class="btn text-white" [disabled]="isDisabled"  style="background-color: #1e4620; width: 15%;font-weight: 500;" >Book</button>
                 </div>
             </p-card>

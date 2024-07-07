@@ -42,7 +42,7 @@ export class TicketPreviewComponent implements OnInit {
   constructor (private adminService: AdminDataService,
   private customerService: CustomerServiceService,
   private router: Router,
-  public dialogService: DialogService
+  public dialogService: DialogService,
   ){}
 
   ngOnInit(){
@@ -56,6 +56,11 @@ export class TicketPreviewComponent implements OnInit {
   this.userFrom = this.adminService.From;
   this.userTo = this.adminService.To;
   this.userDate = this.adminService.Date;
+
+  if (this.userFrom === '' || this.userTo === '' || this.userDate === ''){
+    this.router.navigate(['/landingPageCustomer'])
+  }
+
 
   this.userDefineTicket()
 
@@ -129,7 +134,9 @@ export class TicketPreviewComponent implements OnInit {
           '640px': '90vw'
       },
       data: {
-        UserId: this.data.UserId
+        UserId: this.data.UserId,
+        sch_id: this.trainsInfo.sch_id,
+        date: `${this.userDate}`,
       }
   });
   }

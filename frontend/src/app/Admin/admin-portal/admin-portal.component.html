@@ -6,7 +6,7 @@
       
      
       <div class="header_img">
-        <mat-icon>person</mat-icon>
+        <mat-icon (click)="showDialog()">person</mat-icon>
       </div>
     </header>
     <div class="l-navbar" #nav id="nav-bar">
@@ -46,3 +46,10 @@
     
   </section>
   
+  <div class="card flex justify-content-center">
+    <p-dialog header="Log Out" [(visible)]="visible" [style]="{ width: '25rem' }">
+        <div class="d-flex justify-content-center gap-2">
+            <button class="btn btn-primary " style="width: 7rem;" (click)="logOutUser()" >Log Out    </button>
+        </div>
+    </p-dialog>
+</div>

@@ -34,7 +34,7 @@ export class StationInfoComponent implements OnInit{
       }
     })
   }
-  openEdit(){
+  openEdit(uid:any, pid:any, sid:any){
     this.ref = this.dialogService.open(EditTicketInfoComponent, {
       header: 'Edit Ticket',
       width: '50vw',
@@ -43,6 +43,11 @@ export class StationInfoComponent implements OnInit{
           '960px': '75vw',
           '640px': '90vw'
       },
+      data:{
+        User_ID: uid,
+        passenger_id: pid,
+        sch_id: sid
+      }
   });
   }  
 

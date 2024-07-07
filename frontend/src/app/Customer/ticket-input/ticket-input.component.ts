@@ -42,9 +42,14 @@ export class TicketInputComponent  implements OnInit{
       this.TicketInfo.value.From,
       this.TicketInfo.value.Date,
     );
-    this.adminService.transferInfo(this.TicketInfo.value.To, this.TicketInfo.value.From, this.TicketInfo.value.Date);
-    this.router.navigate(['/customerTicketPreview'])
-    
+    if (this.TicketInfo.valid){
+      this.adminService.transferInfo(this.TicketInfo.value.To, this.TicketInfo.value.From, this.TicketInfo.value.Date);
+      this.router.navigate(['/customerTicketPreview'])
+    }
+    else{
+      
+    }
   }
+
   
 }

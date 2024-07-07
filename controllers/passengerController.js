@@ -32,15 +32,16 @@ exports.addPassenger = (req, res) => {
             phone_number: phone_number
         };
 
-        Passenger.createPassenger(newPassenger, (err, passenger_id) => {
+        Passenger.createPassenger(newPassenger, (err, result) => {
             if (err) {
                 res.status(500).json({ success: false, message: 'Error creating new passenger' });
                 console.log(err);
-                throw err;
             }
-            res.json({ success: true, message: 'Passenger added successfully', new_passenger_ID: passenger_id });
+            else{
+                res.json({ success: true, message: 'Passenger added successfully', new_passenger_ID: result.passenger_id });
+            }
         });
-    });
+    }); 
 };
 
 //  Updating passenger details

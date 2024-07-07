@@ -24,4 +24,16 @@ export class CustomerServiceService {
   getUserWantTicket(data:any): Observable<any>{
     return this.http.post<any>(`${this.url}/schedule-by-start-end`, data)
   }
+
+
+  createPassenger(data:any):Observable<any>{
+    return this.http.post<any>(`${this.url}/create-passenger`, data)
+  }
+
+
+  createTicket(data:any): Observable<any>{
+    return this.http.post(`${this.url}/add-tickets`, data)
+  }
+
+
 }

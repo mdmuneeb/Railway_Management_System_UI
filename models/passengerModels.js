@@ -20,7 +20,7 @@ const Passenger = {
     const sql = 'INSERT INTO passenger (name, gender, phone_number) VALUES (?, ?, ?)';
     con.query(sql, [passenger.name, passenger.gender, passenger.phone_number], function (err, result) {
       if (err) return callback(err);
-
+      callback(null, { passenger_id: result.insertId })
     });
   },
 

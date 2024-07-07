@@ -1,6 +1,6 @@
 <div>
-    <form>
-        <div class="mb-3" [formGroup]="scheduleData">
+    <form [formGroup]="scheduleData">
+        <div class="mb-3" >
           <label class="form-label">Train Id</label>
           <input type="text" class="form-control" formControlName="train_id">
         </div>
