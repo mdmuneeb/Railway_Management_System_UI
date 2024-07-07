@@ -53,4 +53,9 @@ export class AdminDataService {
     return this.http.put<any>(`${this.url}/update-trains`, data)
   }
 
+  deleteTrain(id:any){
+    return this.http.post<any>(`${this.url}/delete-trains`, {
+      train_id:id
+    })
+  }
 }

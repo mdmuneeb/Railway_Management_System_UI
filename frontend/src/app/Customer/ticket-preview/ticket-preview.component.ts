@@ -81,18 +81,8 @@ export class TicketPreviewComponent implements OnInit {
     this.data = sessionStorage.getItem("userData");
     this.data =  JSON.parse(this.data)
     this.gotData = true;
-    console.log(this.data.UserId);
-    this.customerService.getAllBookedTickets(this.data.UserId)
-    .subscribe({
-      next: (res) =>{
-        console.log(res);
-        this.allUserBookedTickets = res
-      },
-      error: (err)=>{
-        console.error("Error", err)
-      }
-    })
-  
+    console.log(this.data.UserId);  
+    this.getBookedTickets()
   }
 }
 
@@ -137,7 +127,22 @@ export class TicketPreviewComponent implements OnInit {
         UserId: this.data.UserId,
         sch_id: this.trainsInfo.sch_id,
         date: `${this.userDate}`,
+        bookedTrains: this.getBookedTickets.bind(this)
       }
   });
+  }
+
+  getBookedTickets(){
+    this.customerService.getAllBookedTickets(this.data.UserId)
+    .subscribe({
+      next: (res) =>{
+        console.log(res);
+        this.allUserBookedTickets = res
+      },
+      error: (err)=>{
+        console.error("Error", err)
+      }
+    })
+
   }
 }
