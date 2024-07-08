@@ -7,13 +7,15 @@ import { timeStamp } from 'console';
 import { Router } from '@angular/router';
 import { runInThisContext } from 'vm';
 import { json } from 'stream/consumers';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule,ToastrModule],
 templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
+  providers: [ToastrService]
 })
 export class LoginComponent implements OnInit{
   
@@ -22,7 +24,8 @@ export class LoginComponent implements OnInit{
   RegisterUserForm!: FormGroup;
   
   constructor(private userService: UserService,
-  private router: Router
+  private router: Router,
+  private toastr: ToastrService
   ){}
 
   
@@ -33,8 +36,9 @@ export class LoginComponent implements OnInit{
     })
     
     this.RegisterUserForm = new FormGroup({
-      User_Name: new FormControl(null, Validators.required),
-      UserPassword: new FormControl(null, Validators.required)
+      UserName: new FormControl(null, Validators.required),
+      UserPassword: new FormControl(null, Validators.required),
+      Email: new FormControl(null, Validators.required)
     })
   }
 
@@ -66,6 +70,14 @@ export class LoginComponent implements OnInit{
 
   RegisterUser(){
     console.log(this.RegisterUserForm.value);
+    this.userService.userRegister(this.RegisterUserForm.value)
+    .subscribe({
+      next: (res)=>{
+        console.log(res);
+        this.toastr.success('User Successfully created', `Thanks for Joining with us`);
+        this.RegisterUserForm.reset()
+      }
+    })
   }
 
 }

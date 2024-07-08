@@ -14,4 +14,8 @@ export class UserService {
   UserLogin(data:any):Observable<any>{
     return this.http.post<any>(`${this.url}/login`, data)
   }
+
+  userRegister(data:any):Observable<any>{
+    return this.http.post<any>(`${this.url}/register`, data)
+  }
 }
