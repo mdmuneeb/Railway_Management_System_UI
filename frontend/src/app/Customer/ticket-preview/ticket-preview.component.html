@@ -45,11 +45,11 @@
         <div class="card flex justify-content-center">
             <p-card header="RMS">
                 <div class="d-flex justify-content-around align-items-baseline">
-                    <p><b style="color: #1e4620;">Train No:</b> {{trainsInfo.train_id}}</p>
-                    <p><b style="color: #1e4620;">Departure:</b>  {{trainsInfo.start}}</p>
-                    <p><b style="color: #1e4620;">Train Arrival:</b> {{trainsInfo.end}}</p>
-                    <p><b style="color: #1e4620;">Departure Time:</b> {{trainsInfo.departure_time}}</p>
-                    <p><b style="color: #1e4620;">Arrival Time:</b> {{trainsInfo.arrival_time}}</p>
+                    <p><b style="color: #1e4620;">Train No:</b>      <br>{{trainsInfo.train_id}}</p>
+                    <p><b style="color: #1e4620;">Departure:</b>     <br>{{trainsInfo.start}}</p>
+                    <p><b style="color: #1e4620;">Train Arrival:</b> <br>{{trainsInfo.end}}</p>
+                    <p><b style="color: #1e4620;">Departure Time:</b><br> {{trainsInfo.departure_time}}</p>
+                    <p><b style="color: #1e4620;">Arrival Time:</b>  <br>{{trainsInfo.arrival_time}}</p>
                     <button  class="btn text-white"  style="background-color: #1e4620; width: 15%;font-weight: 500;" (click)="bookTicket()">Book</button>
                 </div>
             </p-card>
@@ -59,11 +59,12 @@
         <div class="card flex justify-content-center mb-4" *ngFor="let ticket of allUserBookedTickets">
             <p-card header="RMS">
                 <div class="d-flex justify-content-around align-items-baseline" style="color: #1e4620;">
-                    <p><b style="color: #1e4620;">User Id:</b> {{ticket.User_ID}}</p>
-                    <p><b style="color: #1e4620;">Booked Date:</b>  {{ticket.date}}</p>
-                    <p><b style="color: #1e4620;">Passenger Id:</b> {{ticket.passenger_id}}</p>
-                    <p><b style="color: #1e4620;">Schedule Id:</b> {{ticket.sch_id}}</p>
-                    <p><b style="color: #1e4620;">Seat Number:</b> {{ticket.seatNo}}</p>
+                    <!-- <p><b style="color: #1e4620;">User Id:</b> {{ticket.User_ID}}</p> -->
+                    <p><b style="color: #1e4620;">Booked Date:</b>     <br>{{setDate(ticket.date)}}</p>
+                    <p><b style="color: #1e4620;">Passenger Name:</b>  <br>{{ticket.name}}</p>
+                    <p><b style="color: #1e4620;">Station (start):</b> <br>{{ticket.start}}</p>
+                    <p><b style="color: #1e4620;">Station (end):</b>   <br> {{ticket.end}}</p>
+                    <p><b style="color: #1e4620;">Seat Number:</b>     <br>{{ticket.seatNo}}</p>
                     <button  class="btn text-white" [disabled]="isDisabled"  style="background-color: #1e4620; width: 15%;font-weight: 500;" >Book</button>
                 </div>
             </p-card>

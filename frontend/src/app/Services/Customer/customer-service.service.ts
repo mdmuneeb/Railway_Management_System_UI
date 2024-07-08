@@ -36,4 +36,9 @@ export class CustomerServiceService {
   }
 
 
+  
+  deleteTicket(data:any): Observable<any>{
+    return this.http.delete(`${this.url}/add-tickets`, data)
+  }
+
 }

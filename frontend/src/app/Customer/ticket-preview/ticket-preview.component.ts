@@ -143,6 +143,10 @@ export class TicketPreviewComponent implements OnInit {
         console.error("Error", err)
       }
     })
+  }
 
+  setDate(date:any){
+    let d = date.split("T");
+    return d[0]  
   }
 }
