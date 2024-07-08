@@ -6,15 +6,18 @@
                 <th pSortableColumn="sno" style="width:20%">
                     S.No<p-sortIcon field="sno"/>
                 </th>
-                <th pSortableColumn="passenger_id" style="width:20%">
-                    Passenger ID<p-sortIcon field="passenger_id" />
+                <th pSortableColumn="name" style="width:20%">
+                    Passenger Name<p-sortIcon field="name" />
                 </th>
-                <th pSortableColumn="sch_id" style="width:20%">
-                    Scedule ID <p-sortIcon field="sch_id" />
+                <th pSortableColumn="start" style="width:20%">
+                    Station (start) <p-sortIcon field="start" />
                 </th>
-                <th pSortableColumn="User_ID" style="width:20%">
+                <th pSortableColumn="end" style="width:20%">
+                    Station (end) <p-sortIcon field="end" />
+                </th>
+                <!-- <th pSortableColumn="User_ID" style="width:20%">
                     User ID <p-sortIcon field="User_ID" />
-                </th>
+                </th> -->
                 <th pSortableColumn="date" style="width:20%">
                     Date <p-sortIcon field="date" />
                 </th>
@@ -32,9 +35,10 @@
         <ng-template pTemplate="body" let-ticketData let-i="rowIndex">
             <tr>
                 <td>{{ i+1}}</td>
-                <td>{{ ticketData.passenger_id}}</td>
-                <td>{{ ticketData.sch_id}}</td>
-                <td>{{ ticketData.User_ID}}</td>
+                <td>{{ ticketData.name}}</td>
+                <td>{{ ticketData.start}}</td>
+                <td>{{ ticketData.end}}</td>
+                <!-- <td>{{ ticketData.User_ID}}</td> -->
                 <td>{{ setDate(ticketData.date)}}</td>
                 <td>{{ ticketData.seatNo}}</td>
                 <!-- <td style="padding-left: 25px;">{{ passengerData }}</td> -->

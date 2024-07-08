@@ -83,7 +83,7 @@ export class AddTicketComponent implements OnInit{
         this.isDone = false
         this.config.data.bookedTrains()
         this.ref.close()
-        this.toastr.success('Ticket Successfully created', `You aeat Number is ${res.seatNo}`);
+        this.toastr.success('Ticket Successfully created', `You Seat Number is ${res.seatNo}`);
       },
       error: (err)=>{
         console.log("Ticket error", err);

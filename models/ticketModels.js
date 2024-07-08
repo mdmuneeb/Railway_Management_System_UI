@@ -4,7 +4,7 @@ const con = require('../database');
 const Ticket = {
     // Retrieve all tickets
     findAll: function (callback) {
-        const sql = 'SELECT * FROM ticket';
+        const sql = 'SELECT * FROM ticket INNER JOIN passenger ON ticket.passenger_id = passenger.passenger_id INNER JOIN schedule ON ticket.sch_id = schedule.sch_id';
         con.query(sql, callback);
     },
     // Find tickets by user ID
