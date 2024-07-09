@@ -6,33 +6,37 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { CalendarModule } from 'primeng/calendar';
 import { runInThisContext } from 'vm';
 import { OnReadOpts } from 'net';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AdminDataService } from '../../Services/Admin/admin-data.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 
 
 @Component({
   selector: 'app-ticket-input',
   standalone: true,
-  imports: [CardModule, InputGroupModule, InputGroupAddonModule, FloatLabelModule, CalendarModule, ReactiveFormsModule],
+  imports: [CardModule, InputGroupModule, InputGroupAddonModule, FloatLabelModule, CalendarModule, ReactiveFormsModule, CommonModule,ToastrModule],
 
 templateUrl: './ticket-input.component.html',
-  styleUrl: './ticket-input.component.scss'
+  styleUrl: './ticket-input.component.scss',
+  providers: [ToastrService]
 })
 export class TicketInputComponent  implements OnInit{
 
   TicketInfo!: FormGroup;
 
   constructor(private adminService: AdminDataService, 
-  private router: Router
+  private router: Router,
+  private toastr: ToastrService
   ){}
 
   ngOnInit(): void {
     this.TicketInfo = new FormGroup({
-      To: new FormControl(null),
-      From: new FormControl(null),
-      Date: new FormControl(null)
+      To: new FormControl(null, Validators.required),
+      From: new FormControl(null, Validators.required),
+      Date: new FormControl(null, Validators.required)
     })
   }
 
@@ -47,6 +51,7 @@ export class TicketInputComponent  implements OnInit{
       this.router.navigate(['/customerTicketPreview'])
     }
     else{
+      this.toastr.error('Credentials Error', `Enter correct credentials`);
       
     }
   }

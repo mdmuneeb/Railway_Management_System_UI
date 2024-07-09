@@ -5,10 +5,16 @@
                 <p-floatLabel style="width: 30%">
                     <input id="From:" type="text" formControlName = "From" pInputText class="form-control" style="width: 99%; margin-right: 2px; background-color: #f1f2f6; height: 3rem"/>
                     <label for="From:">From: City, Station</label>
+                    <p
+                    *ngIf="TicketInfo.get('From')?.hasError('required') && TicketInfo.get('From')?.touched"
+                    class="text-danger ">From is required</p>          
                 </p-floatLabel>
                 <p-floatLabel style="width: 30%">
                     <input id="To:" type="text" pInputText formControlName="To"  class="form-control" style="width: 99%; background-color: #f1f2f6;  height: 3rem; margin-right: 2px;"/>
                     <label for="To:">To: City, Station</label>
+                    <p
+                    *ngIf="TicketInfo.get('To')?.hasError('required') && TicketInfo.get('To')?.touched"
+                    class="text-danger ">To is required</p>
                 </p-floatLabel>
                 <p-floatLabel style="margin-right: 5px; width: 30%;" >
                     <!-- <input id="username" type="text" pInputText  class="form-control " style="width: 99%; background-color: #f1f2f6;  height: 3rem; margin-right: 5px;"/> -->
